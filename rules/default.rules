@@ -1,0 +1,23 @@
+# Codex CLI Execution Policy Rules
+# 危険なコマンドを完全にブロック
+
+# ファイルシステムの破壊を防止
+prefix_rule(pattern=["rm", "-rf"], decision="forbidden")
+
+# ディスクの破壊を防止
+prefix_rule(pattern=["dd", "if=/dev/zero"], decision="forbidden")
+prefix_rule(pattern=["dd", "if=/dev/random"], decision="forbidden")
+prefix_rule(pattern=["mkfs"], decision="forbidden")
+prefix_rule(pattern=["fdisk"], decision="forbidden")
+prefix_rule(pattern=["parted"], decision="forbidden")
+
+# システムの停止を防止
+prefix_rule(pattern=["shutdown"], decision="forbidden")
+prefix_rule(pattern=["reboot"], decision="forbidden")
+prefix_rule(pattern=["poweroff"], decision="forbidden")
+prefix_rule(pattern=["halt"], decision="forbidden")
+
+# Git の危険な操作を防止
+prefix_rule(pattern=["git", "push", "--force"], decision="forbidden")
+prefix_rule(pattern=["git", "push", "-f"], decision="forbidden")
+prefix_rule(pattern=["git", "push", "--force-with-lease"], decision="forbidden")
