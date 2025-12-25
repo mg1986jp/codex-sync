@@ -1,0 +1,13 @@
+# Codex CLI Configuration
+approval_policy = "never"
+
+sandbox_mode = "workspace-write"
+
+[sandbox_workspace_write]
+network_access = true
+
+# MCP Puppeteer サーバー
+[mcp_servers.puppeteer]
+type = "stdio"
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-puppeteer"]
