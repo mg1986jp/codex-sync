@@ -8,12 +8,14 @@ auth.json
 # ----- セッション & 履歴データ -----
 history.jsonl
 sessions/
+*cache*
 
 # ----- バージョン情報 -----
 version.json
 
 # ----- デバッグログ -----
 log/
+tmp/
 
 # ----- スキル -----
 skills/
